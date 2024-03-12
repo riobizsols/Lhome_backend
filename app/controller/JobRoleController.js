@@ -46,7 +46,7 @@ async function getJobRoleList(req , res){
         const JobroleList = await Jobrole.findAll();
         res.status(200).json({msg : "Jobrole list fetched successfully" ,data : JobroleList})
     }catch(err){
-        console.log("error occured, ", err);
+        console.log("error occured ", err);
         res.status(400).json({msg : 'errors occured'})
     }
 }
