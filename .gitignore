@@ -1,5 +1,0 @@
-/node_modules
-/uploads/Portfolio/*
-!/uploads/Portfolio/.gitkeep
-/uploads/resume/*
-!/uploads/resume/.gitkeep

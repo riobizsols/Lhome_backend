@@ -10,7 +10,7 @@ async function PostJobrole(req, res) {
             department,
             joblocation,
             Job_Description,
-            Position_Title,
+            Position_Title, 
             Experience,
             Qualification,
             Job_type,
@@ -46,8 +46,8 @@ async function getJobRoleList(req , res){
         const JobroleList = await Jobrole.findAll();
         res.status(200).json({msg : "Jobrole list fetched successfully" ,data : JobroleList})
     }catch(err){
-        console.log("error occured ", err);
-        res.status(400).json({msg : 'error occured'})
+        console.log("error occured, ", err);
+        res.status(400).json({msg : 'errors occured'})
     }
 }
 const getJobRoleById = async (req, res) => {

@@ -7,7 +7,7 @@ async function registerUser(req, res) {
     const isNumberExist = await User.findOne({where : {number}});
     const isEmailExist = await User.findOne({where : {email}});
 
-    console.log(isNumberExist.id , isEmailExist.id);
+    // console.log(isNumberExist.id , isEmailExist.id);
 
     let user;
 
