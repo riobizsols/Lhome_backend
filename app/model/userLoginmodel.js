@@ -12,7 +12,7 @@ function generateNumericOTP(length) {
   return otp;
 }
 
-const Login = sequelize.define('Login', {
+const Login = sequelize.define('Login', { 
   id: {
     type: DataTypes.STRING,
     allowNull: false,

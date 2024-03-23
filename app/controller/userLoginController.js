@@ -4,6 +4,7 @@ const jwt = require('jsonwebtoken');
 const otpGenerator = require('otp-generator');
 const { generateSessionToken } = require('../utilsFunction/sessionProvider');
 const { sendOTPasSMS } = require('../utilsFunction/otpSender');
+const twilio = require('twilio');
 
 async function sendOTP(req, res) {
   const { number } = req.body;
@@ -14,13 +15,25 @@ async function sendOTP(req, res) {
 
     if (login && !isexist) {
       login = await Login.create({ id :login.id ,  number });
-      // sendOTPasSMS(login.otp , login.number);
-    res.status(200).json({ message: 'OTP sent successfully' });
+     let smsSendRes= await sendOTPasSMS(login.otp , login.number);
+     if(smsSendRes) {
+      res.status(200).json({ message: 'OTP sent successfully' });
+     } else {
+      res.status(200).json({ message: 'Failed to sent OTP' });
+     }
+   
     }else if(login && isexist){
       const deletePreviousRecord = await Login.destroy({where : { number }})
       if(deletePreviousRecord){
         login = await Login.create({ id :login.id ,  number });
-        res.status(200).json({ message: 'OTP sent successfully' });
+        let smsRes = await sendOTPasSMS(login.otp, number); 
+        // console.log("++++++++++",smsRes)
+        if(smsRes) {
+          res.status(200).json({ message: 'OTP sent successfully' });
+         } else {
+          res.status(200).json({ message: 'Failed to sent OTP' });
+         }
+       // res.status(200).json({ message: 'OTP sent successfully2' });
       }
     }
     if (!login) {
