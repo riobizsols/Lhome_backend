@@ -62,4 +62,36 @@ const getJobRoleById = async (req, res) => {
       return res.status(500).json({ error: error.message });
     }
   };
-module.exports = { PostJobrole, getJobRoleList, getJobRoleById };
+
+const deleteJobRole = async (req, res) => {
+    try {
+        const { id } = req.params;
+        const deleted = await Jobrole.destroy({ where: { id } });
+
+        if (deleted) {
+            res.json({ message: 'Job role deleted successfully' });
+        } else {
+            res.status(404).json({ error: 'Job role not found' });
+        }
+    } catch (error) {
+        console.error('Error deleting job role:', error);
+        res.status(500).json({ error: 'Failed to delete job role' });
+    }
+};
+    //to check job roles
+const checkJobRoles = async (req, res) => {
+    try {
+        const jobRoles = await Jobrole.findAll();
+
+        if (jobRoles.length > 0) {
+            res.status(200).json({ message: "Job roles found", data: jobRoles });
+        } else {
+            res.status(404).json({ message: "No job roles found" });
+        }
+    } catch (error) {
+        console.error("Error fetching job roles:", error);
+        res.status(500).json({ error: "Failed to fetch job roles" });
+    }
+};
+
+module.exports = { PostJobrole, getJobRoleList, getJobRoleById, deleteJobRole, checkJobRoles };

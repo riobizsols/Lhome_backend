@@ -5,24 +5,38 @@
   "main": "index.js",
   "scripts": {
     "start": " nodemon index.js",
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "sequelize": "cross-env NODE_ENV=development sequelize-cli"
   },
   "author": "",
   "license": "ISC",
   "dependencies": {
+    "@types/yup": "^0.29.14",
     "body-parser": "^1.20.2",
     "cors": "^2.8.5",
+    "cross-env": "^7.0.3",
     "dotenv": "^16.3.1",
     "express": "^4.18.2",
+    "formik": "^2.4.6",
     "jsonwebtoken": "^9.0.2",
     "multer": "^1.4.5-lts.1",
     "mysql2": "^3.6.5",
+    "next": "^15.2.1",
     "nodemailer": "^6.9.7",
     "nodemon": "^3.0.1",
     "otp-generator": "^4.0.1",
-    "pg": "^8.11.3",
+    "pg": "^8.13.3",
+    "pg-hstore": "^2.3.4",
+    "react-bootstrap": "^2.10.9",
+    "react-icons": "^5.5.0",
+    "react-toastify": "^11.0.5",
     "sequelize": "^6.35.1",
     "twilio": "^5.0.1",
-    "uuid": "^9.0.1"
+    "uuid": "^9.0.1",
+    "yup": "^1.6.1"
+  },
+  "devDependencies": {
+    "@types/react-toastify": "^4.0.2",
+    "sequelize-cli": "^6.6.2"
   }
 }

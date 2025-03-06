@@ -20,12 +20,12 @@ const postReferUser = async (req, res) => {
         host: 'smtp.gmail.com',
         port: 587,
         auth: {
-            user: 'gskumarnellai@gmail.com',
-            pass: 'yyiwuipmkjjqmnem',
+            user: 'realakashjaiswal@gmail.com',
+            pass: 'nocd tuqh kuim rbun',
         },
     });
     const mailOptions = {
-        from: 'gskumarnellai@gmail.com',
+        from: 'realakashjaiswal@gmail.com',
         to: email,
         subject: 'Referral Link',
         text: `Hello Mr/Mrs.${name}, your friend Mr.${userName} invited you to check this link: https://www.lhome.co.in/`,

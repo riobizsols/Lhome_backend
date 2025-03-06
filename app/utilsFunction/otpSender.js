@@ -11,6 +11,7 @@ const twillio_client = require('twilio')(sid, token);
 async function sendOTPasSMS( otp , number){
 
     console.log(number , otp);
+    console.log("Hello");
 const result = await twillio_client.messages
   .create({
     body: `Greetings from Lhome! Your OTP for login is:${otp}. Keep it confidential.`,
